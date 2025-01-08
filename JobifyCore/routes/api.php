@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\InterestController;
+use App\Http\Controllers\WorkRequestController;
 
 
 // Routes requiring user authentication
@@ -18,6 +19,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/work/recommend', [WorkController::class, 'recomendation']);
     Route::get('/work/associate', [WorkController::class, 'user_work_associate']);
     Route::post('/work/add_request', [WorkController::class, 'add_request_work']);
+
+    Route::get('/work/{workId}/users', [WorkRequestController::class, 'getUsersByWorkId']);
 
     // api resources for work
     Route::apiResource('work', WorkController::class);

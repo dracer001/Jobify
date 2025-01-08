@@ -110,5 +110,7 @@ class User extends Authenticatable
         {
             return $this->hasMany(WorkRequest::class, 'user_id');
         }
+
+        
     
 }

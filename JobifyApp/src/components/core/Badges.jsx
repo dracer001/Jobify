@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 // Define size classes for small, medium, and large badges
 const sizeClasses = {
-  sm: 'text-xs py-1.5 px-2 font-medium',   // Small: Smaller text and padding
-  md: 'text-xs py-1.5 px-3 font-semibold', // Medium: Default size for medium badge
+  sm: 'text-xs py-1 px-2 font-medium',   // Small: Smaller text and padding
+  md: 'text-sm py-1.5 px-3 font-semibold', // Medium: Default size for medium badge
   lg: 'text-md py-2 px-4 font-semibold',   // Large: Larger text and padding
 };
 

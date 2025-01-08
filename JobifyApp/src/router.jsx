@@ -114,10 +114,7 @@ const router = createBrowserRouter([
         path: "job/payment",
         element: <JobPayment />,
       },
-      {
-        path: "job/termination",
-        element: <JobTermination />,
-      },
+
 
     ],
   },

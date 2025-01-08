@@ -1,14 +1,6 @@
 import { Link } from "react-router-dom";
 import { CheckBadgeIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
-
-const getInitials = (firstName, lastName) => {
-    return `${firstName[0]}${lastName[0]}`;
-  };
-
-  const getInitialsC = (companyName) => {
-    return companyName.slice(0, 2).toUpperCase(); // Take the first two letters of the company name
-  };
-
+import  PhotoDisplay  from "../components/PhotoDisplay";
 
 export default function UserCard({
     user
@@ -20,18 +12,7 @@ export default function UserCard({
   >
     {/* Profile photo or initials */}
     <div className="flex items-center space-x-4 mb-4">
-      {user.profile_photo ? (
-        <img
-          src={user.profile_photo}
-          alt={isCompany ? user.company_name : user.first_name}
-          className="w-16 h-16 rounded-full object-cover"
-        />
-      ) : (
-        <div className="w-16 h-16 bg-gray-400 text-white flex items-center justify-center rounded-full">
-          <span className="text-2xl font-bold">{isCompany? getInitialsC(user.company_name) : getInitials(user.first_name, user.last_name)}</span>
-        </div>
-      )}
-
+      <PhotoDisplay user={user} />
       <div>
         <h3 className="text-xl font-semibold text-blue-600">
             { isCompany ? `${user.company_name}` : `${user.first_name} ${user.last_name}`}</h3>

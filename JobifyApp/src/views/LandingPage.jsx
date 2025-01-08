@@ -1,58 +1,68 @@
+import { Navigate } from "react-router-dom";
+import { useStateContext } from "../context/ContextProvider";
+import { Dialog, DialogPanel } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from "react";
+import LogoIcon from "../components/core/LogoIcon";
+import TButton from "../components/core/TButton";
+
+
+
 export default function LandingPage () {
+  const { authToken } = useStateContext();
+
+  if (authToken) {
+    console.log(authToken);
+    return <Navigate to="/home" />;
+  }
+
   return (
-    <div className="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="bg-blue-600 text-white py-4">
-        <div className="container mx-auto flex justify-between items-center px-4">
-          <h1 className="text-2xl font-bold">Jobify</h1>
-          <nav>
-            <button className="bg-white text-blue-600 px-4 py-2 rounded-md font-semibold hover:bg-gray-200">
-              Sign Up
-            </button>
-            <button className="bg-white text-blue-600 px-4 py-2 rounded-md font-semibold hover:bg-gray-200">
-              Sign In
-            </button>
-          </nav>
-        </div>
-      </header>
-
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
       {/* Hero Section */}
-      <main className="flex-grow container mx-auto flex flex-col lg:flex-row items-center px-4 py-16">
-        {/* Left Content */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
-          <h2 className="text-4xl font-extrabold mb-4">
-            Bridging the Gap Between Talent and Opportunity
-          </h2>
-          <p className="text-lg text-gray-600 mb-6">
-            Jobify is your ultimate platform for connecting job seekers with
-            employers in the digital world. Whether you're a skilled professional
-            or a business seeking talent, we bring you together for mutual growth.
+      <section className="flex flex-col lg:flex-row items-center justify-center lg:space-x-8 p-8">
+        {/* Logo and Catchy Tagline */}
+        <div className="text-center lg:text-left mb-8 lg:mb-0 lg:w-1/2">
+          <div className="mb-6">
+            {/* Logo Placeholder */}
+            <LogoIcon type="light" className="w-32 h-auto mx-auto lg:mx-0" />
+          </div>
+          <h1 className="mb-4 text-5xl font-semibold tracking-tight text-balance sm:text-7xl">Find Your Future. Faster.</h1>
+          <p className="text-lg mb-6 mt-8 font-medium text-pretty text-gray-400 sm:text-xl/8">
+            Jobify connects you to the best opportunities. Whether you’re looking to hire or get hired, we’ve got you covered.
           </p>
-          <p className="text-lg text-gray-600 mb-6">
-            Focused on digital skills, Jobify helps individuals showcase their expertise
-            and allows businesses to find the right people to bring their projects to life.
+          <p className="text-md text-gray-500 mb-8">
+            Join the revolution in job hunting. Let’s make your next move, your best move.
           </p>
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-blue-700">
-            Join Now
-          </button>
+          <div className="flex justify-center lg:justify-start gap-4 mt-6">
+            <TButton
+              to="/auth/signup"
+            >Sign Up</TButton>
+            {/* <a href="/auth/signup" className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300">
+              Sign Up
+            </a> */}
+            <TButton 
+              transparent={true} 
+              to="/auth/signin">
+              Sign In
+            </TButton>
+            {/* <a href="/auth/signin" className="bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-md hover:border-slate-400 hover:text-slate-400 transition duration-300">
+              Sign In
+            </a> */}
+          </div>
         </div>
 
-        {/* Right Image/Illustration */}
-        <div className="lg:w-1/2">
-          <img
-            src="https://via.placeholder.com/600x400"
-            alt="Connecting people illustration"
-            className="rounded-md shadow-lg"
-          />
+        {/* Animated Section */}
+        <div className="hidden lg:block lg:w-1/2">
+          {/* Example of an animation */}
+          <div className="relative w-full h-64">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-lg animate-pulse"></div>
+            <div className="absolute inset-0 flex justify-center items-center">
+              <div className="w-32 h-32 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-spin"></div>
+            </div>
+          </div>
         </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-gray-200 text-gray-700 py-4">
-        <div className="container mx-auto text-center text-sm">
-          &copy; {new Date().getFullYear()} Jobify. All rights reserved.
-        </div>
-      </footer>
+      </section>
     </div>
   );
-};
+
+}

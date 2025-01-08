@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px; /* Adjust the height for horizontal scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #B0B0B0; /* Light grey color for the thumb */
+    border-radius: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #8A8A8A; /* Slightly darker grey on hover */
+}
+
+.custom-scrollbar::-webkit-scrollbar:vertical {
+    width: 8px; /* Vertical scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background-color: #666666; /* Even darker grey when active */
+}
+
+  

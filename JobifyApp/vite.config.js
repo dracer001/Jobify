@@ -11,6 +11,7 @@ export default defineConfig({
   },
   // for dev
   server: {
-    port: 3000,
-  },
+    host: '0.0.0.0',  // Bind to all IPs, so it's accessible from other devices
+    port: 3000, // You can change the port if needed
+  }
 })

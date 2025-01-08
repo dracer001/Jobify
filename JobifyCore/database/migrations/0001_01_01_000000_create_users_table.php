@@ -1,24 +1,42 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Enums\Gender;
+use App\Enums\UserType;
+use App\Enums\UserStatus;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
     /**
      * Run the migrations.
      */
+    
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->id(); // Auto-incrementing ID
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('title')->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('company_website')->nullable();
+            $table->text('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->text('about')->nullable();
+            $table->enum('gender', Gender::getValues())->default(Gender::Others->value)->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('profile_photo')->nullable();
+            $table->string('credential')->nullable();
+            $table->enum('status', UserStatus::getValues())->default(UserStatus::Active->value); // Job status as an enum
+            $table->enum('user_type', UserType::getValues());
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken(); // For "remember me" functionality
+            $table->timestamps(); // Created at and Updated at timestamps
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

@@ -15,7 +15,7 @@ import useNotification from "../../hooks/useNotification";
 import { axiosClient } from "../../context/axios";
 import { isEmpty } from "../../helperFunctions";
 import { useStateContext } from "../../context/ContextProvider";
-import WarningDialog from "../../components/core/warningDialog";
+import WarningDialog from "../../components/core/WarningDialog";
 import SuccessDialog from "../../components/core/SuccessDialog";
 
 const validationSchema = yup.object().shape({

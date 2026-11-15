@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import LogoutPopup from '../../components/LogoutPopUp';
+import LogoutPopup from '../../components/LogoutPopup';
 import UserSettingLink from '../../components/UserSettingLink';
 import { useStateContext } from '../../context/ContextProvider';
 

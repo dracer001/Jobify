@@ -5,7 +5,7 @@ import { formatDate, isEmpty } from '../../helperFunctions';
 import { BadgeStatus } from '../../components/core/Badges';
 import TButton from '../../components/core/TButton';
 import { useState } from 'react';
-import WarningDialog from '../../components/core/warningDialog';
+import WarningDialog from '../../components/core/WarningDialog';
 import { axiosClient } from '../../context/axios';
 import useNotification from '../../hooks/useNotification';
 import Notification from '../../components/core/Notification';

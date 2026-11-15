@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { profileRegValidation, companyRegValidation } from '../../validation/signupValidation';
 import { axiosClient } from '../../context/axios';
-import { FileUpload, LogoUpload } from '../../components/form/FIleForm';
+import { FileUpload, LogoUpload } from '../../components/form/FileForm';
 import TextareaForm from '../../components/form/TextareaForm';
 import InputForm from '../../components/form/InputForm';
 import SelectForm from '../../components/form/SelectForm';

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import InputForm from '../form/InputForm';
 import SelectForm from '../form/SelectForm';
 import RadioForm from '../form/RadioForm';
-import { FileUpload, LogoUpload, ProfilePhotoUpload } from '../form/FIleForm';
+import { FileUpload, LogoUpload, ProfilePhotoUpload } from '../form/FileForm';
 import TextareaForm from '../form/TextareaForm';
 import DatalistForm from '../form/DataListForm';
 import SelectSearch from '../form/SelectSearch';

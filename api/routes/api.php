@@ -9,7 +9,26 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\WorkRequestController;
+use Illuminate\Support\Facades\DB;
 
+
+
+
+Route::get('/health', function () {
+    try {
+        DB::connection()->getPdo();
+        $database = 'up';
+    } catch (\Throwable) {
+        $database = 'down'; // never expose the exception message to clients
+    }
+
+    return response()->json([
+        'status' => 'ok',
+        'app' => config('app.name'),
+        'database' => $database,
+        'time' => now()->toIso8601String(),
+    ]);
+});
 
 // Routes requiring user authentication
 Route::middleware('auth:sanctum')->group(function () {
